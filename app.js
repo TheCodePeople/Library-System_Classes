@@ -81,13 +81,56 @@ class BookStatus {
 const library = new Library("New York Public Library", books);
 const patron = new Patron("Ali Ammar", 12345);
 
-library.addBook("The Lord of the Rings", "J.R.R. Tolkien");
-console.log(books);
+function displayBooks() {
+  const bookList = document.getElementById("bookList");
+  bookList.innerHTML = "";
 
-library.checkOutBook(11, patron);
-library.checkInBook(11);
-library.removeBook(1);
+  library.books.forEach(book => {
+    const bookElement = document.createElement("div");
+    bookElement.classList.add("book");
 
-console.log(books);
-console.log(library.getBookById(9));
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = book.title;
 
+    const authorElement = document.createElement("p");
+    authorElement.textContent = `Author: ${book.author}`;
+
+    const statusElement = document.createElement("p");
+    statusElement.textContent = book.status?.checkedOut
+      ? `Checked Out by ${book.status.patron.name}`
+      : "Available";
+
+    bookElement.appendChild(titleElement);
+    bookElement.appendChild(authorElement);
+    bookElement.appendChild(statusElement);
+
+    bookList.appendChild(bookElement);
+  });
+}
+
+function addBook() {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+
+  if (title && author) {
+    library.addBook(title, author);
+    displayBooks();
+  }
+}
+
+function searchBook() {
+  const searchId = parseInt(document.getElementById("searchId").value, 10);
+  if (isNaN(searchId)) {
+    alert("Please enter a valid book ID.");
+    return;
+  }
+
+  const book = library.getBookById(searchId);
+  if (book) {
+    alert(`Book found: ${book.title} by ${book.author}`);
+  } else {
+    alert("Book not found.");
+  }
+}
+
+displayBooks();
