@@ -1,15 +1,32 @@
-const books = [
-  { author: "J.D. Salinger", title: "The Catcher in the Rye", id: 1 },
-  { author: "Harper Lee", title: "To Kill a Mockingbird", id: 2 },
-  { author: "George Orwell", title: "1984", id: 3 },
-  { author: "F. Scott Fitzgerald", title: "The Great Gatsby", id: 4 },
-  {
-    author: "J.K. Rowling",
-    title: "Harry Potter and the Philosopher's Stone",
-    id: 6,
-  },
-  { author: "J.R.R. Tolkien", title: "The Hobbit", id: 7 },
-  { author: "George Orwell", title: "The Lord of the Rings", id: 8 },
-  { author: "Aldous Huxley", title: "Animal Farm", id: 9 },
-  { author: "Aldous Huxley", title: "Brave New World", id: 10 },
-];
+import { Library } from "./Library.js";
+import { books } from "./Data.js";
+import { Patron } from "./Patron.js";
+let library1 = new Library("Abbas Alnajafy Library",books);
+let patron1 = new Patron("Abbas Abd Alhusain",1);
+let patron2 = new Patron("Patron-2",2);
+let patron3 = new Patron("Patron-3",3);
+let patron4 = new Patron("Patron-4",4);
+let patron5 = new Patron("Patron-5",5);
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+console.log(library1.books);
+library1.addBook( "Author-11" , "php and myqsl"  );
+library1.addBook( "Author-12" , "js essential" );
+library1.addBook( "Author-13" , "python language" );
+library1.addBook( "Author-14" , "python language" );
+library1.addBook( "Author-15" , "python language" );
+library1.removeBook(1);
+library1.removeBook(100);
+library1.removeBook(12);
+library1.removeBook(120);
+library1.checkOutBook(1,patron1);
+library1.checkOutBook(5,patron2);
+library1.checkOutBook(11,patron2);
+library1.checkOutBook(2,patron3);
+library1.checkOutBook(5,patron4);
+library1.checkOutBook(10,patron5);
+library1.checkIn(1);
+library1.checkIn(5);
+library1.checkIn(11);
+library1.display();
