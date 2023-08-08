@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #008080;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .actions label {
+    margin-right: 10px;
+    color: #008080;
+  }
+
+  .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .book {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .book h3 {
+    margin-top: 0;
+    color: #008080;
+  }
+
+  .book p {
+    margin: 0;
+    color: #666;
+  }
+
+  button{
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
