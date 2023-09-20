@@ -94,3 +94,20 @@ const library = new LiLibrary("Central Library", books);
 library.addBook("The Alchemist", "Paulo Coelho", 11);
 library.removeBook(11);
 console.log(library.books);
+
+library.removeBook(5);
+
+const patron = new Patron("John Smith", 1);
+
+library.checkOutBook(3, patron);
+
+const checkedOutBook = library.getBookById(3);
+console.log(
+  `bookTitle: ${checkedOutBook.title},checkOutBook:${checkedOutBook.status.patron.name}`
+);
+
+library.checkInBook(3);
+const checkedInBook = library.getBookById(3);
+console.log(
+  `bookTitle:${checkedInBook.title},checkeOut:${checkedInBook.status.checkOut}`
+);
